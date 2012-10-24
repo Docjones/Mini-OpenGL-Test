@@ -1,0 +1,353 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		498081F8161DFB1A00ABDCD1 /* Ultima_5_-_Tiles.png in Resources */ = {isa = PBXBuildFile; fileRef = 498081F6161DFB1A00ABDCD1 /* Ultima_5_-_Tiles.png */; };
+		498081F9161DFB1A00ABDCD1 /* Ultima_sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 498081F7161DFB1A00ABDCD1 /* Ultima_sprites.png */; };
+		49C7D87116174375002ACB85 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C7D87016174375002ACB85 /* Cocoa.framework */; };
+		49C7D87B16174376002ACB85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49C7D87916174376002ACB85 /* InfoPlist.strings */; };
+		49C7D87D16174376002ACB85 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C7D87C16174376002ACB85 /* main.m */; };
+		49C7D88116174376002ACB85 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 49C7D87F16174376002ACB85 /* Credits.rtf */; };
+		49C7D88416174376002ACB85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C7D88316174376002ACB85 /* AppDelegate.m */; };
+		49C7D88716174376002ACB85 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C7D88516174376002ACB85 /* MainMenu.xib */; };
+		49C7D88E161743A2002ACB85 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C7D88D161743A2002ACB85 /* OpenGL.framework */; };
+		49C7D891161743CE002ACB85 /* MyOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C7D890161743CE002ACB85 /* MyOpenGLView.m */; };
+		49C7D89616174403002ACB85 /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C7D89316174403002ACB85 /* TextureManager.m */; };
+		49C7D89716174403002ACB85 /* TextureObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C7D89516174403002ACB85 /* TextureObject.m */; };
+		49C7D89C16174532002ACB85 /* c001_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C7D89816174532002ACB85 /* c001_alpha.png */; };
+		49C7D89D16174532002ACB85 /* c003_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C7D89916174532002ACB85 /* c003_alpha.png */; };
+		49C7D89E16174532002ACB85 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C7D89A16174532002ACB85 /* blocks.png */; };
+		49C7D89F16174532002ACB85 /* c003_rgba.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C7D89B16174532002ACB85 /* c003_rgba.png */; };
+		49FBC0221618EE2800FE41B8 /* c003.png in Resources */ = {isa = PBXBuildFile; fileRef = 49FBC0211618EE2700FE41B8 /* c003.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		498081F6161DFB1A00ABDCD1 /* Ultima_5_-_Tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ultima_5_-_Tiles.png"; sourceTree = "<group>"; };
+		498081F7161DFB1A00ABDCD1 /* Ultima_sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ultima_sprites.png; sourceTree = "<group>"; };
+		49C7D86C16174375002ACB85 /* Mini OpenGL Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini OpenGL Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C7D87016174375002ACB85 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		49C7D87316174375002ACB85 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		49C7D87416174375002ACB85 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		49C7D87516174375002ACB85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		49C7D87816174376002ACB85 /* Mini OpenGL Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mini OpenGL Test-Info.plist"; sourceTree = "<group>"; };
+		49C7D87A16174376002ACB85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		49C7D87C16174376002ACB85 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		49C7D87E16174376002ACB85 /* Mini OpenGL Test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mini OpenGL Test-Prefix.pch"; sourceTree = "<group>"; };
+		49C7D88016174376002ACB85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		49C7D88216174376002ACB85 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		49C7D88316174376002ACB85 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		49C7D88616174376002ACB85 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		49C7D88D161743A2002ACB85 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		49C7D88F161743CE002ACB85 /* MyOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOpenGLView.h; sourceTree = "<group>"; };
+		49C7D890161743CE002ACB85 /* MyOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOpenGLView.m; sourceTree = "<group>"; };
+		49C7D89216174403002ACB85 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
+		49C7D89316174403002ACB85 /* TextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
+		49C7D89416174403002ACB85 /* TextureObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureObject.h; sourceTree = "<group>"; };
+		49C7D89516174403002ACB85 /* TextureObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureObject.m; sourceTree = "<group>"; };
+		49C7D89816174532002ACB85 /* c001_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c001_alpha.png; sourceTree = "<group>"; };
+		49C7D89916174532002ACB85 /* c003_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c003_alpha.png; sourceTree = "<group>"; };
+		49C7D89A16174532002ACB85 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blocks.png; sourceTree = "<group>"; };
+		49C7D89B16174532002ACB85 /* c003_rgba.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c003_rgba.png; sourceTree = "<group>"; };
+		49FBC0211618EE2700FE41B8 /* c003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = c003.png; path = ../c003.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49C7D86916174375002ACB85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C7D88E161743A2002ACB85 /* OpenGL.framework in Frameworks */,
+				49C7D87116174375002ACB85 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49C7D86116174375002ACB85 = {
+			isa = PBXGroup;
+			children = (
+				49C7D88F161743CE002ACB85 /* MyOpenGLView.h */,
+				49C7D890161743CE002ACB85 /* MyOpenGLView.m */,
+				49C7D87616174375002ACB85 /* Mini OpenGL Test */,
+				49C7D86F16174375002ACB85 /* Frameworks */,
+				49C7D86D16174375002ACB85 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49C7D86D16174375002ACB85 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49C7D86C16174375002ACB85 /* Mini OpenGL Test.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49C7D86F16174375002ACB85 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49C7D87016174375002ACB85 /* Cocoa.framework */,
+				49C7D87216174375002ACB85 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49C7D87216174375002ACB85 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49C7D88D161743A2002ACB85 /* OpenGL.framework */,
+				49C7D87316174375002ACB85 /* AppKit.framework */,
+				49C7D87416174375002ACB85 /* CoreData.framework */,
+				49C7D87516174375002ACB85 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		49C7D87616174375002ACB85 /* Mini OpenGL Test */ = {
+			isa = PBXGroup;
+			children = (
+				498081F6161DFB1A00ABDCD1 /* Ultima_5_-_Tiles.png */,
+				498081F7161DFB1A00ABDCD1 /* Ultima_sprites.png */,
+				49C7D89816174532002ACB85 /* c001_alpha.png */,
+				49C7D89916174532002ACB85 /* c003_alpha.png */,
+				49FBC0211618EE2700FE41B8 /* c003.png */,
+				49C7D89A16174532002ACB85 /* blocks.png */,
+				49C7D89B16174532002ACB85 /* c003_rgba.png */,
+				49C7D89216174403002ACB85 /* TextureManager.h */,
+				49C7D89316174403002ACB85 /* TextureManager.m */,
+				49C7D89416174403002ACB85 /* TextureObject.h */,
+				49C7D89516174403002ACB85 /* TextureObject.m */,
+				49C7D88216174376002ACB85 /* AppDelegate.h */,
+				49C7D88316174376002ACB85 /* AppDelegate.m */,
+				49C7D88516174376002ACB85 /* MainMenu.xib */,
+				49C7D87716174375002ACB85 /* Supporting Files */,
+			);
+			path = "Mini OpenGL Test";
+			sourceTree = "<group>";
+		};
+		49C7D87716174375002ACB85 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49C7D87816174376002ACB85 /* Mini OpenGL Test-Info.plist */,
+				49C7D87916174376002ACB85 /* InfoPlist.strings */,
+				49C7D87C16174376002ACB85 /* main.m */,
+				49C7D87E16174376002ACB85 /* Mini OpenGL Test-Prefix.pch */,
+				49C7D87F16174376002ACB85 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49C7D86B16174375002ACB85 /* Mini OpenGL Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49C7D88A16174376002ACB85 /* Build configuration list for PBXNativeTarget "Mini OpenGL Test" */;
+			buildPhases = (
+				49C7D86816174375002ACB85 /* Sources */,
+				49C7D86916174375002ACB85 /* Frameworks */,
+				49C7D86A16174375002ACB85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mini OpenGL Test";
+			productName = "Mini OpenGL Test";
+			productReference = 49C7D86C16174375002ACB85 /* Mini OpenGL Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49C7D86316174375002ACB85 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Marc;
+			};
+			buildConfigurationList = 49C7D86616174375002ACB85 /* Build configuration list for PBXProject "Mini OpenGL Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 49C7D86116174375002ACB85;
+			productRefGroup = 49C7D86D16174375002ACB85 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49C7D86B16174375002ACB85 /* Mini OpenGL Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49C7D86A16174375002ACB85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C7D87B16174376002ACB85 /* InfoPlist.strings in Resources */,
+				49C7D88116174376002ACB85 /* Credits.rtf in Resources */,
+				49C7D88716174376002ACB85 /* MainMenu.xib in Resources */,
+				49C7D89C16174532002ACB85 /* c001_alpha.png in Resources */,
+				49C7D89D16174532002ACB85 /* c003_alpha.png in Resources */,
+				49C7D89E16174532002ACB85 /* blocks.png in Resources */,
+				49C7D89F16174532002ACB85 /* c003_rgba.png in Resources */,
+				49FBC0221618EE2800FE41B8 /* c003.png in Resources */,
+				498081F8161DFB1A00ABDCD1 /* Ultima_5_-_Tiles.png in Resources */,
+				498081F9161DFB1A00ABDCD1 /* Ultima_sprites.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49C7D86816174375002ACB85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C7D87D16174376002ACB85 /* main.m in Sources */,
+				49C7D88416174376002ACB85 /* AppDelegate.m in Sources */,
+				49C7D891161743CE002ACB85 /* MyOpenGLView.m in Sources */,
+				49C7D89616174403002ACB85 /* TextureManager.m in Sources */,
+				49C7D89716174403002ACB85 /* TextureObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		49C7D87916174376002ACB85 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C7D87A16174376002ACB85 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		49C7D87F16174376002ACB85 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C7D88016174376002ACB85 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		49C7D88516174376002ACB85 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C7D88616174376002ACB85 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49C7D88816174376002ACB85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		49C7D88916174376002ACB85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		49C7D88B16174376002ACB85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mini OpenGL Test/Mini OpenGL Test-Prefix.pch";
+				INFOPLIST_FILE = "Mini OpenGL Test/Mini OpenGL Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		49C7D88C16174376002ACB85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mini OpenGL Test/Mini OpenGL Test-Prefix.pch";
+				INFOPLIST_FILE = "Mini OpenGL Test/Mini OpenGL Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49C7D86616174375002ACB85 /* Build configuration list for PBXProject "Mini OpenGL Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49C7D88816174376002ACB85 /* Debug */,
+				49C7D88916174376002ACB85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49C7D88A16174376002ACB85 /* Build configuration list for PBXNativeTarget "Mini OpenGL Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49C7D88B16174376002ACB85 /* Debug */,
+				49C7D88C16174376002ACB85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49C7D86316174375002ACB85 /* Project object */;
+}

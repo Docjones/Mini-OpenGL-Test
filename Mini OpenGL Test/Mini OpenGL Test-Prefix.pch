@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Mini OpenGL Test' target in the 'Mini OpenGL Test' project
+//
+
+#ifdef __OBJC__
+  #import <Cocoa/Cocoa.h>
+#endif
