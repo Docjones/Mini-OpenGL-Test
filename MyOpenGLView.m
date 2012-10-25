@@ -49,7 +49,7 @@
 
   glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
   
-
+	
   aTimer=[[NSTimer timerWithTimeInterval:1.0f/30.0f target:self selector:@selector(animationTrigger:) userInfo:self repeats:YES] retain];
   [[NSRunLoop currentRunLoop] addTimer:aTimer forMode:NSDefaultRunLoopMode];
   [[NSRunLoop currentRunLoop] addTimer:aTimer forMode:NSEventTrackingRunLoopMode];
