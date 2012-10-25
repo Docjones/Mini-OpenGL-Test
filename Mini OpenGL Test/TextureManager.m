@@ -10,8 +10,8 @@
 #import "TextureObject.h"
 #import <OpenGL/glu.h>
 
-#define TILE_WIDTH  16
-#define TILE_HEIGTH 16
+#define TILE_WIDTH  32
+#define TILE_HEIGTH 32
 
 @implementation TextureManager
 
@@ -61,7 +61,7 @@
   for (id e in _textures) {
     if([[e textureName] isEqualToString:textureName]) {
       _currentTextureObject=e;
-			return [e textureID];
+      return [_currentTextureObject textureID];
     }
   }
   // nicht gefunden -> laden und einfuegen
@@ -79,9 +79,12 @@
   int pixelsWide = (int) [result pixelsWide];
   int pixelsHigh = (int) [result pixelsHigh];
   int bytesPerRow = (int) [result bytesPerRow];
+
   NSLog(@"Asset loaded: %@, sPP:%d, w:%d, h:%d, bpR:%d",textureName,samplesPerPixel,pixelsWide,pixelsHigh,bytesPerRow);
   void * myData=NULL;
   if (needsAlpha==YES)  {
+    NSLog(@"Adding ALPHA Channel...");
+    
     samplesPerPixel=4;
     bytesPerRow=pixelsWide*samplesPerPixel;
     // Setup Rendering area
@@ -97,6 +100,19 @@
     
     CGContextSetBlendMode(myBitmapContext, kCGBlendModeCopy);
     CGContextDrawImage(myBitmapContext, rect, [result CGImage]);
+    
+    CGImageRef cImage = CGBitmapContextCreateImage(myBitmapContext);
+    
+    CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:@"/Users/marc/Desktop/Alpha-image.png"];
+    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypePNG, 1, NULL);
+    CGImageDestinationAddImage(destination, cImage, nil);
+      
+    if (!CGImageDestinationFinalize(destination)) {
+      NSLog(@"Failed to write image");
+    }
+      
+    CFRelease(destination);
+ 
     CGContextRelease(myBitmapContext);
     CGColorSpaceRelease(space);
   }
@@ -109,9 +125,15 @@
 
   glMatrixMode(GL_TEXTURE);
   glLoadIdentity();
-  glScalef(1/(float)pixelsWide, 1/(float)pixelsHigh, 1); // scaling the texture to get pixel coordinates
+  glScalef(0.5/(float)pixelsWide, 0.5/(float)pixelsHigh, 1); // scaling the texture to get pixel coordinates
   
+  GLenum glType=(samplesPerPixel==4)?GL_RGBA:GL_RGB;
+  GLenum glFormat=GL_UNSIGNED_BYTE;
 
+  NSLog(@"Binding Asset: %@, sPP:%d, w:%d, h:%d, bpR:%d, glType:%d, glFormat:%d",textureName,samplesPerPixel,pixelsWide,pixelsHigh,bytesPerRow,glType,glFormat);
+
+  
+  
   GLuint tmpTexture;
   glGenTextures (1, &tmpTexture);
   
@@ -123,12 +145,12 @@
   glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
   
   glTexImage2D(GL_TEXTURE_2D,0,
-               (samplesPerPixel==4)?GL_RGBA:GL_RGB,
+               GL_RGBA,
                pixelsWide,
                pixelsHigh,
                0,
-               (samplesPerPixel==4)?GL_RGBA:GL_RGB,
-               GL_UNSIGNED_BYTE,
+               glType,
+               glFormat,
                (samplesPerPixel==4)?myData:[result bitmapData]);
 	if (myData!=NULL) {
     free(myData);
