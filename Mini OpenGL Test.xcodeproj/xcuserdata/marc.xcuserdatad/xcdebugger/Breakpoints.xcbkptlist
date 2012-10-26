@@ -7,13 +7,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "MyOpenGLView.m"
-         timestampString = "372868346.368437"
+         filePath = "Mini OpenGL Test/TextureManager.m"
+         timestampString = "372938937.117658"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-drawRect:"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
+         landmarkName = "-textureByName:needsAlpha:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -21,24 +21,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mini OpenGL Test/TextureManager.m"
-         timestampString = "372865224.023445"
+         timestampString = "372938937.117658"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
          landmarkName = "-textureByName:needsAlpha:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mini OpenGL Test/TextureManager.m"
-         timestampString = "372930998.261437"
+         timestampString = "372938398.549988"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "105"
-         endingLineNumber = "105"
+         startingLineNumber = "107"
+         endingLineNumber = "107"
          landmarkName = "-textureByName:needsAlpha:"
          landmarkType = "5">
       </FileBreakpoint>
