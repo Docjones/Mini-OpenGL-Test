@@ -12,7 +12,6 @@
 @interface MyOpenGLView : NSOpenGLView {
 
   TextureManager *_textureManager;
-  GLuint b;
   GLuint i;
   NSTimer *aTimer;
 

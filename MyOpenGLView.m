@@ -37,17 +37,14 @@
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   
-  //  glEnable(GL_ALPHA_TEST);
-  //  glAlphaFunc(GL_GREATER, 1.0);
-  
   glEnable(GL_TEXTURE_2D);
-  // glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-  
+
   // activate pointer to vertex & texture array
   glEnableClientState(GL_VERTEX_ARRAY);
   glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
   glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   
 	
   aTimer=[[NSTimer timerWithTimeInterval:1.0f/30.0f target:self selector:@selector(animationTrigger:) userInfo:self repeats:YES] retain];
@@ -64,40 +61,38 @@
 - (void)drawRect:(NSRect)dirtyRect {
   static GLint t[8];
   static GLint v[8];
+  GLuint b;
 
-  static GLint t0[8];
-  static GLint v0[8];
   glClear(GL_COLOR_BUFFER_BIT);
 
-  b=[_textureManager textureByName:@"Ultima_5_-_Tiles" needsAlpha:YES];
+  b=[_textureManager textureByName:@"blocks" needsAlpha:YES];
+  // NSLog(@"Texture ID %d loaded",b);
   glBindTexture(GL_TEXTURE_2D,b);
   glEnable(GL_DEPTH_TEST);
   glDisable(GL_BLEND);
   
+  [_textureManager getBlockWithNumber:3 forTextureArray:t];
   for (int y=0; y<16; y++) {
     for (int x=0; x<32; x++) {
-      [_textureManager getBlockWithNumber:x+y*32 forTextureArray:&t[0]];
-      [_textureManager getTileX:x Y:y forVertexArray:&v[0]];
+      [_textureManager getTileX:x Y:y forVertexArray:v];
       glTexCoordPointer(2, GL_INT, 0, t);
       glVertexPointer(2, GL_INT, 0, v);
       glDrawArrays(GL_QUADS, 0, 4);
     }
   }
   
+  // b=[_textureManager textureByName:@"c003" needsAlpha:YES];
+  // NSLog(@"Texture ID %d loaded",b);
+  glBindTexture(GL_TEXTURE_2D,b);	
   glDisable(GL_DEPTH_TEST);
   glEnable(GL_BLEND);
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-  [_textureManager getBlockWithNumber:32 forTextureArray:&t0[0]];
-  [_textureManager getTileX:4 Y:4 forVertexArray:&v0[0]];
-  glTexCoordPointer(2, GL_INT, 0, t0);
-  glVertexPointer(2, GL_INT, 0, v0);
-
-  glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+  [_textureManager getBlockWithNumber:1 forTextureArray	:t];
+  [_textureManager getTileX:4 Y:4 forVertexArray:v];
+  glTexCoordPointer(2, GL_INT, 0, t);
+  glVertexPointer(2, GL_INT, 0, v);	
   glDrawArrays(GL_QUADS, 0, 4);
-  
 
-//
   glFlush();
 }
 @end

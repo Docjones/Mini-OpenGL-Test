@@ -10,8 +10,10 @@
 #import "TextureObject.h"
 #import <OpenGL/glu.h>
 
-#define TILE_WIDTH  32
-#define TILE_HEIGTH 32
+#define SCALE 2
+
+#define TILE_WIDTH  16
+#define TILE_HEIGTH 16
 
 @implementation TextureManager
 
@@ -101,8 +103,8 @@
     CGContextSetBlendMode(myBitmapContext, kCGBlendModeCopy);
     CGContextDrawImage(myBitmapContext, rect, [result CGImage]);
     
+    // calculating ALPHA Channel based on RGB (0,0,0)
     char *ptr=myData;
-    
     for (int i=0; i<pixelsWide * samplesPerPixel * pixelsHigh; i+=4,ptr+=4) {
       ptr[3]=((ptr[0]+ptr[1]+ptr[2])==0)?0:255;
     }
@@ -131,17 +133,18 @@
 
   glMatrixMode(GL_TEXTURE);
   glLoadIdentity();
-  glScalef(0.5/(float)pixelsWide, 0.5/(float)pixelsHigh, 1); // scaling the texture to get pixel coordinates
+  glScalef(1.0f/(float)pixelsWide,
+           1.0f/(float)pixelsHigh, 1.0f); // scaling the texture to get pixel coordinates
   
   GLenum glType=(samplesPerPixel==4)?GL_RGBA:GL_RGB;
   GLenum glFormat=GL_UNSIGNED_BYTE;
 
   NSLog(@"Binding Asset: %@, sPP:%d, w:%d, h:%d, bpR:%d, glType:%d, glFormat:%d",textureName,samplesPerPixel,pixelsWide,pixelsHigh,bytesPerRow,glType,glFormat);
 
-  
-  
   GLuint tmpTexture;
   glGenTextures (1, &tmpTexture);
+
+  NSLog(@"Bound Asset with ID %d",tmpTexture);
   
   glBindTexture(GL_TEXTURE_2D, tmpTexture); 
   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER, GL_NEAREST); // Blurry mode OFF
@@ -179,43 +182,41 @@
 }
 
 - (void)getTileX:(int)x Y:(int)y forVertexArray:(GLint*)v {
-  v[0]=TILE_WIDTH*x;     v[1]=TILE_HEIGTH*y;
-  v[2]=TILE_WIDTH*(x+1); v[3]=TILE_HEIGTH*y;
-  v[4]=TILE_WIDTH*(x+1); v[5]=TILE_HEIGTH*(y+1);
-  v[6]=TILE_WIDTH*x;     v[7]=TILE_HEIGTH*(y+1);
+  v[0]=TILE_WIDTH*SCALE*x;     v[1]=TILE_HEIGTH*SCALE*y;
+  v[2]=TILE_WIDTH*SCALE*(x+1); v[3]=TILE_HEIGTH*SCALE*y;
+  v[4]=TILE_WIDTH*SCALE*(x+1); v[5]=TILE_HEIGTH*SCALE*(y+1);
+  v[6]=TILE_WIDTH*SCALE*x;     v[7]=TILE_HEIGTH*SCALE*(y+1);
 }
 
 
-- (void)getBlockWithNumber:(int)b forTextureArray:(GLint*)t{
+- (void)getBlockWithNumber:(int)b forTextureArray:(GLint*)t {
   
-  int x=b%([_currentTextureObject width]/TILE_WIDTH);
-  int y=b/([_currentTextureObject height]/TILE_HEIGTH);
-  [self getTileX:x Y:y forVertexArray:t];
+  int x=b%([_currentTextureObject width]/(TILE_WIDTH));
+  int y=b/([_currentTextureObject width]/(TILE_WIDTH));
+  
+  t[0]=(TILE_WIDTH)*x;     t[1]=(TILE_HEIGTH)*y;
+  t[2]=(TILE_WIDTH)*(x+1); t[3]=(TILE_HEIGTH)*y;
+  t[4]=(TILE_WIDTH)*(x+1); t[5]=(TILE_HEIGTH)*(y+1);
+  t[6]=(TILE_WIDTH)*x;     t[7]=(TILE_HEIGTH)*(y+1);
 }
-	
-- (TextureObject*)textureObjectByID:(GLuint)textureID	
-{
+
+- (TextureObject*)textureObjectByID:(GLuint)textureID	{
 	NSEnumerator *enumerator = [_textures objectEnumerator];
 	TextureObject *element;
-	while(element = [enumerator nextObject])
-  {
-		if([element textureID] == textureID)
-		{		
+	while(element = [enumerator nextObject]) {
+		if([element textureID] == textureID) {
 			return element;
 		}
   }
 	return nil;
 }
 
-- (void)unloadTexture:(GLuint)textureID
-{
+- (void)unloadTexture:(GLuint)textureID {
 	NSEnumerator *enumerator = [_textures objectEnumerator];
 	TextureObject *element;
-	while(element = [enumerator nextObject])
-  {
+	while(element = [enumerator nextObject]) {
 		GLuint texID = [element textureID];
-		if(texID == textureID)
-		{
+		if(texID == textureID) {
 			GLuint tmpTexture = [element textureID];
 			glDeleteTextures(1, &tmpTexture);
 			[_textures removeObject:element];			
