@@ -101,17 +101,23 @@
     CGContextSetBlendMode(myBitmapContext, kCGBlendModeCopy);
     CGContextDrawImage(myBitmapContext, rect, [result CGImage]);
     
-    CGImageRef cImage = CGBitmapContextCreateImage(myBitmapContext);
+    char *ptr=myData;
     
-    CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:@"/Users/marc/Desktop/Alpha-image.png"];
-    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypePNG, 1, NULL);
-    CGImageDestinationAddImage(destination, cImage, nil);
-      
-    if (!CGImageDestinationFinalize(destination)) {
-      NSLog(@"Failed to write image");
+    for (int i=3; i<pixelsWide * samplesPerPixel * pixelsHigh; i+=4) {
+      	int a	=((ptr[i-3]+ptr[i-2]+ptr[i-1])==0)?0:255;
+      *myData[i]=a;
     }
-      
-    CFRelease(destination);
+//    CGImageRef cImage = CGBitmapContextCreateImage(myBitmapContext);
+//    
+//    CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:@"/Users/marc/Desktop/Alpha-image.png"];
+//    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypePNG, 1, NULL);
+//    CGImageDestinationAddImage(destination, cImage, nil);
+//      
+//    if (!CGImageDestinationFinalize(destination)) {
+//      NSLog(@"Failed to write image");
+//    }
+//      
+//    CFRelease(destination);
  
     CGContextRelease(myBitmapContext);
     CGColorSpaceRelease(space);
