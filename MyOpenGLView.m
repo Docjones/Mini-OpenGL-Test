@@ -74,9 +74,9 @@
   glEnable(GL_DEPTH_TEST);
   glDisable(GL_BLEND);
   
-  [_textureManager getBlockWithNumber:5 forTextureArray:&t[0]];
-  for (int x=0; x<9; x++) {
-    for (int y=0; y<9; y++) {
+  for (int y=0; y<16; y++) {
+    for (int x=0; x<32; x++) {
+      [_textureManager getBlockWithNumber:x+y*32 forTextureArray:&t[0]];
       [_textureManager getTileX:x Y:y forVertexArray:&v[0]];
       glTexCoordPointer(2, GL_INT, 0, t);
       glVertexPointer(2, GL_INT, 0, v);
@@ -87,19 +87,17 @@
   glDisable(GL_DEPTH_TEST);
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  glColor4f(1.0f, 1.0f, 1.0f, 0.0f);
-		
-  [_textureManager getBlockWithNumber:1 forTextureArray:&t0[0]];
+
+  [_textureManager getBlockWithNumber:32 forTextureArray:&t0[0]];
   [_textureManager getTileX:4 Y:4 forVertexArray:&v0[0]];
   glTexCoordPointer(2, GL_INT, 0, t0);
   glVertexPointer(2, GL_INT, 0, v0);
 
   glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
   glDrawArrays(GL_QUADS, 0, 4);
-  	
+  
 
 //
   glFlush();
 }
-
 @end

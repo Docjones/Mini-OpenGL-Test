@@ -103,10 +103,10 @@
     
     char *ptr=myData;
     
-    for (int i=3; i<pixelsWide * samplesPerPixel * pixelsHigh; i+=4) {
-      	int a	=((ptr[i-3]+ptr[i-2]+ptr[i-1])==0)?0:255;
-      *myData[i]=a;
+    for (int i=0; i<pixelsWide * samplesPerPixel * pixelsHigh; i+=4,ptr+=4) {
+      ptr[3]=((ptr[0]+ptr[1]+ptr[2])==0)?0:255;
     }
+    
 //    CGImageRef cImage = CGBitmapContextCreateImage(myBitmapContext);
 //    
 //    CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:@"/Users/marc/Desktop/Alpha-image.png"];
@@ -119,7 +119,7 @@
 //      
 //    CFRelease(destination);
  
-    CGContextRelease(myBitmapContext);
+    CGContextRelease(myBitmapContext);	
     CGColorSpaceRelease(space);
   }
   glPushMatrix();
@@ -179,20 +179,21 @@
 }
 
 - (void)getTileX:(int)x Y:(int)y forVertexArray:(GLint*)v {
-  v[0]=TILE_WIDTH*x;            v[1]=TILE_HEIGTH*y;
-  v[2]=TILE_WIDTH*x+TILE_WIDTH; v[3]=TILE_HEIGTH*y;
-  v[4]=TILE_WIDTH*x+TILE_WIDTH; v[5]=TILE_HEIGTH*y+TILE_HEIGTH;
-  v[6]=TILE_WIDTH*x;            v[7]=TILE_HEIGTH*y+TILE_HEIGTH;
+  v[0]=TILE_WIDTH*x;     v[1]=TILE_HEIGTH*y;
+  v[2]=TILE_WIDTH*(x+1); v[3]=TILE_HEIGTH*y;
+  v[4]=TILE_WIDTH*(x+1); v[5]=TILE_HEIGTH*(y+1);
+  v[6]=TILE_WIDTH*x;     v[7]=TILE_HEIGTH*(y+1);
 }
 
 
 - (void)getBlockWithNumber:(int)b forTextureArray:(GLint*)t{
+  
   int x=b%([_currentTextureObject width]/TILE_WIDTH);
   int y=b/([_currentTextureObject height]/TILE_HEIGTH);
   [self getTileX:x Y:y forVertexArray:t];
 }
-
-- (TextureObject*)textureObjectByID:(GLuint)textureID
+	
+- (TextureObject*)textureObjectByID:(GLuint)textureID	
 {
 	NSEnumerator *enumerator = [_textures objectEnumerator];
 	TextureObject *element;
