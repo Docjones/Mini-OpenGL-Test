@@ -92,7 +92,7 @@
   glTexCoordPointer(2, GL_INT, 0, t);
   glVertexPointer(2, GL_INT, 0, v);	
   glDrawArrays(GL_QUADS, 0, 4);
-
+//
   glFlush();
 }
 @end

@@ -13,7 +13,7 @@
 #define SCALE 2
 
 #define TILE_WIDTH  16
-#define TILE_HEIGTH 16
+#define TILE_HEIGTH 16	
 
 @implementation TextureManager
 
